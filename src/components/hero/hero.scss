@@ -60,12 +60,22 @@
     }
 
     .imageContainer {
-        height: 100%;
         position: absolute;
-        top: 0;
+        top: -140px;
         right: 0;
         z-index: 1;
+        height: auto;
+        overflow: hidden;
+    
+        img {
+            display: block;
+            max-width: none;
+            width: auto;
+            height: auto;
+            margin-right: 100px;
+        }
     }
+    
 
     .slidingTextContainer {
         position: absolute;
