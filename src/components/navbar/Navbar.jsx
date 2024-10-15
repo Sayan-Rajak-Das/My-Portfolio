@@ -17,7 +17,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, x: 0 }}                   // Slide to original position
                     transition={{ duration: 0.5, ease: "easeOut" }}  // Smooth swipe effect
                     >
-                        Sayan Rajak Das
+                        My Portfolio
                     </motion.span>
                 <div className="social">
                     <a href="https://www.linkedin.com/in/sayan-rajak-das/"><img src="/Linkedin.jpeg" alt="" /></a>

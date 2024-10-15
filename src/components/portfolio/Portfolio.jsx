@@ -6,27 +6,31 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 const items = [
     {
         id: 1,
-        title: "React Commerse",
-        img: "https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=400",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.Quasi fugit fugiat consequuntur quaerat modi delectus architecto ? Maiores officia modi porro animi dolorem voluptates aspernatur repellat commodi doloremque ratione, iure quasi.",
+        title: "Weather App",
+        img: "/Weather-App.gif",
+        desc: "The weather app allows users to type in a city name to see the current weather. It shows important details like temperature, humidity, and wind speed. The design is simple and easy to use, making it quick for anyone to check the weather.",
+        demoLink: "https://sayan-rajak-das.github.io/Web-Development/",
     },
     {
         id: 2,
-        title: "Next.js Blog",
-        img: "https://images.pexels.com/photos/28451399/pexels-photo-28451399.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.Quasi fugit fugiat consequuntur quaerat modi delectus architecto ? Maiores officia modi porro animi dolorem voluptates aspernatur repellat commodi doloremque ratione, iure quasi.",
+        title: "Simon Game",
+        img: "/Simon-game.gif",
+        desc: "The Simon Game is a memory game created with HTML, CSS, and JavaScript, where players follow and repeat a growing sequence of colors and sounds. It offers a fun way to challenge memory skills while providing an engaging and enjoyable experience for players of all ages.",
+        demoLink: "https://sayan-rajak-das.github.io/Simon-Game-using-HTML-CSS-JavaScript/",
     },
     {
         id: 3,
-        title: "Vanila JS App",
-        img: "https://images.pexels.com/photos/28176070/pexels-photo-28176070.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.Quasi fugit fugiat consequuntur quaerat modi delectus architecto ? Maiores officia modi porro animi dolorem voluptates aspernatur repellat commodi doloremque ratione, iure quasi.",
+        title: "Task Management Web Application",
+        img: "/task1.gif",
+        desc: "A webpage includes a sticky navigation bar, interactive buttons, and forms, focusing on simplicity and user experience. It combines clean design elements with responsive functionality for ease of use.",
+        demoLink: "https://sayan-rajak-das.github.io/Web-Development-Assignmnt-by-Fyle/",
     },
     {
         id: 4,
-        title: "Music App",
-        img: "https://images.pexels.com/photos/33597/guitar-classical-guitar-acoustic-guitar-electric-guitar.jpg?auto=compress&cs=tinysrgb&w=400",
-        desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit.Quasi fugit fugiat consequuntur quaerat modi delectus architecto ? Maiores officia modi porro animi dolorem voluptates aspernatur repellat commodi doloremque ratione, iure quasi.",
+        title: "Text Style Editor",
+        img: "text-style.gif",
+        desc: "This is a simple text styling tool that allows users to modify font family, text size, and color dynamically. It offers a range of font options, sizes, and colors for customizing text, as well as undo/redo functionality for easy editing.",
+        demoLink: "",
     },
 ];
 
@@ -53,7 +57,7 @@ const Single = ({item}) => {
                     <motion.div className="textContainer" style={{y}}>
                         <h2>{item.title}</h2>
                         <p>{item.desc}</p>
-                        <button>See Demo</button>
+                        <button onClick={() => window.open(item.demoLink, "_blank")}>See Demo</button>
                     </motion.div>
                 </div>  
                 

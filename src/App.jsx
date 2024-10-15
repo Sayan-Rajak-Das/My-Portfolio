@@ -1,4 +1,5 @@
 import "./App.scss";
+import { BrowserRouter as Router } from 'react-router-dom';
 import Test from "./Test.jsx";
 import Navbar from "./components/navbar/Navbar.jsx";
 import Hero from "./components/hero/Hero.jsx";
