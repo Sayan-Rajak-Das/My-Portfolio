@@ -51,7 +51,7 @@ const Services = () => {
 
             <motion.div className="titleContainer" variants={variants}>
                 <div className="title">
-                    <img src="/people.jpeg" alt=""></img>
+                    <img src="./people.jpeg" alt=""></img>
                     <h1>
                         <motion.b whileHover={{ color: "orange" }}>Full-Stack</motion.b> Solutions
                     </h1>

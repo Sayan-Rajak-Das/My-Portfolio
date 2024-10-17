@@ -20,10 +20,10 @@ const Navbar = () => {
                         My Portfolio
                     </motion.span>
                 <div className="social">
-                    <a href="https://www.linkedin.com/in/sayan-rajak-das/"><img src="/Linkedin.jpeg" alt="" /></a>
-                    <a href="https://www.geeksforgeeks.org/user/sayandas987123654/"><img src="/GeeksForGeeks.png" alt="" /></a>
-                    <a href="https://leetcode.com/u/Sayan-Rajak-Das/"><img src="/Leetcode.png" alt="" /></a>                
-                    <a href="https://github.com/Sayan-Rajak-Das"><img src="/GitHub.png" alt="" /></a>                  
+                    <a href="https://www.linkedin.com/in/sayan-rajak-das/"><img src="./Linkedin.jpeg" alt="" /></a>
+                    <a href="https://www.geeksforgeeks.org/user/sayandas987123654/"><img src="./GeeksForGeeks.png" alt="" /></a>
+                    <a href="https://leetcode.com/u/Sayan-Rajak-Das/"><img src="./Leetcode.png" alt="" /></a>                
+                    <a href="https://github.com/Sayan-Rajak-Das"><img src="./GitHub.png" alt="" /></a>                  
                 </div>
             </div>
         </div>
