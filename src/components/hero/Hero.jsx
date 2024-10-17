@@ -73,7 +73,7 @@ const Hero = () => {
                             My Resume
                         </motion.button>
                     </motion.div>
-                    <motion.img variants={textVariants} animate="scrollButton" src="/scroll.png" alt=""></motion.img>
+                    <motion.img variants={textVariants} animate="scrollButton" src="./scroll.png" alt=""></motion.img>
                 </motion.div>
             </div>
 
