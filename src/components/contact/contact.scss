@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .contact {
     height: 100%;
     max-width: 1366px;
@@ -6,15 +8,34 @@
     align-items: center;
     gap: 50px;
 
+    @include mobile {
+        width: 100%;
+        flex-direction: column;
+        padding: 10px; 
+    }
+
     .textContainer {
         flex: 1;
         display: flex;
         flex-direction: column;
         gap: 40px;
+
+        @include mobile {
+            gap: 20px;
+            text-align: center;
+            align-items: center;
+            margin-top: 70px;
+            max-height: 250px;
+        }
         
         h1 {
             font-size: 100px;
             line-height: 88px;
+
+            @include mobile {
+                font-size: 30px;
+                line-height: 1.2;
+            }
         }
 
         span {
@@ -26,11 +47,24 @@
         flex: 1;
         position: relative;
 
+        @include mobile {
+            padding: 15px;
+            width: 100%;
+            // margin-top: 20px;
+        }
+
         .phoneSvg {
             stroke: orange;
             position: absolute;
             margin: auto;
             z-index: -1;  // pointer-events: none;
+
+            @include mobile{
+                transform: scale(0.8); // Increase the size slightly
+                left: -22px;
+                right: auto;
+                top: 20px;
+            }
         }
 
         form {
@@ -38,12 +72,21 @@
             flex-direction: column;
             gap: 20px;
 
+            @include mobile{
+                transition-delay: none !important;
+            }
+
+
             input, textarea {
                 padding: 20px;
                 background-color: transparent;
                 border: 1px solid white;
                 color: white;
                 border-radius: 5px;
+
+                @include mobile {
+                    padding: 7px 10px;
+                }
             }
 
             button {
@@ -53,6 +96,10 @@
                 border-radius: 5px;
                 cursor: pointer;
                 font-weight: 500;
+
+                @include mobile {
+                    padding: 7px;
+                }
             }
 
             button:hover {

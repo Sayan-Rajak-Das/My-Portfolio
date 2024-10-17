@@ -53,7 +53,7 @@ const Contact = () => {
             whileInView= "animate"
         >
             <motion.div className="textContainer" variants={ variants }>
-                <motion.h1 variants={ variants }>Let's work together</motion.h1>
+                <motion.h1 variants={ variants }>Let's Work Together</motion.h1>
                 <motion.div className="item" variants={ variants }>
                     <h2>Mail</h2>
                     <span>sayandas987123654@gmail.com</span>
@@ -81,7 +81,7 @@ const Contact = () => {
                         fill="none"
                         initial={{ pathLength: 0 }}
                         animate={isInView && { pathLength: 1 }}
-                        transition={{ duration: 3 }}
+                        transition={{ duration: 4 }}
                         d="M28.189,16.504h-1.666c0-5.437-4.422-9.858-9.856-9.858l-0.001-1.664C23.021,4.979,28.189,10.149,28.189,16.504z
                         M16.666,7.856L16.665,9.52c3.853,0,6.983,3.133,6.981,6.983l1.666-0.001C25.312,11.735,21.436,7.856,16.666,7.856z M16.333,0
                         C7.326,0,0,7.326,0,16.334c0,9.006,7.326,16.332,16.333,16.332c0.557,0,1.007-0.45,1.007-1.006c0-0.559-0.45-1.01-1.007-1.01
@@ -110,8 +110,8 @@ const Contact = () => {
                     <input type="email" required placeholder="Email" name="email"/>
                     <textarea rows={8} placeholder="Message" name="message"/>
                     <button>Submit</button>
-                    {error && "Error"}
-                    {success && "Success"}
+                    {error && "Opps! Something Went Wrong ☹️"}
+                    {success && "Message Sent Successfully👍"}
                 </motion.form>
             </div>
         </motion.div>
