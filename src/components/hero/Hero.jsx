@@ -1,7 +1,8 @@
 import "./hero.scss";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
+// Motion variants for scroll icon
 const textVariants = {
     initial: {
         x: -500,
@@ -25,6 +26,7 @@ const textVariants = {
     },
 };
 
+// Motion variants for sliding text
 const sliderVariants = {
     initial: {
         x: 0,
@@ -40,7 +42,11 @@ const sliderVariants = {
 };
 
 const handleResumeClick = () => {
-    window.open("https://drive.google.com/file/d/1BShRL7mjSt6XXpnL9oNu-uKdoCSCHIed/view?usp=drive_link", "_blank", "noopener,noreferrer");
+    window.open(
+        "https://drive.google.com/file/d/1BShRL7mjSt6XXpnL9oNu-uKdoCSCHIed/view?usp=drive_link",
+        "_blank",
+        "noopener,noreferrer"
+    );
 };
 
 const handleContactClick = () => {
@@ -52,6 +58,55 @@ const handlePortfolioClick = () => {
 };
 
 const Hero = () => {
+    const texts = ["Full Stack Web Developer", "MERN Stack Specialist", "JavaScript Enthusiast"];
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const [displayedText, setDisplayedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [cursorVisible, setCursorVisible] = useState(true);
+
+    const TYPING_SPEED = 150; // Speed of typing
+    const DELETING_SPEED = 100; // Speed of deleting
+    const PAUSE_TIME = 2000; // Time to pause before deleting or typing
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const fullText = texts[currentTextIndex];
+            if (!isDeleting) {
+                // Typing effect
+                setDisplayedText((prev) => fullText.substring(0, prev.length + 1));
+
+                if (displayedText === fullText) {
+                    // Once typing is complete, pause before deleting
+                    setTimeout(() => setIsDeleting(true), PAUSE_TIME);
+                }
+            } else {
+                // Deleting effect
+                setDisplayedText((prev) => prev.substring(0, prev.length - 1));
+
+                if (displayedText === "") {
+                    setIsDeleting(false);
+                    setCurrentTextIndex((prev) => (prev + 1) % texts.length); // Move to the next text
+                }
+            }
+        };
+
+        const typingTimeout = setTimeout(
+            handleTyping,
+            isDeleting ? DELETING_SPEED : TYPING_SPEED
+        );
+
+        return () => clearTimeout(typingTimeout);
+    }, [displayedText, isDeleting, currentTextIndex]);
+
+    // Blinking cursor effect
+    useEffect(() => {
+        const cursorBlinking = setInterval(() => {
+            setCursorVisible((prev) => !prev);
+        }, 500); // Cursor blinks every 500ms
+
+        return () => clearInterval(cursorBlinking);
+    }, []);
+
     return (
         <div className="hero">
             <div className="wrapper">
@@ -62,27 +117,69 @@ const Hero = () => {
                     animate="animate"
                 >
                     <motion.h2 variants={textVariants}>SAYAN RAJAK DAS</motion.h2>
-                    <motion.h1 variants={textVariants}>Full Stack Web Developer</motion.h1>
-                    <motion.div variants={textVariants} className="buttons">
-                        <motion.button variants={textVariants} onClick={handlePortfolioClick}>See the Latest Works</motion.button>
-                        <motion.button variants={textVariants} onClick={handleContactClick}>Contact Me</motion.button>
+
+                    {/* Typewriter effect with cursor */}
+                    <motion.div 
+                        className="changingText" 
+                        style={{ position: "relative", height: "50px" }}
+                        variants={textVariants}
+                    >
+                        <motion.h1
+                            style={{ whiteSpace: "nowrap" }} // Ensuring text stays on one line
+                        >
+                            {displayedText}
+                            <span
+                                className={`cursor ${cursorVisible ? "visible" : ""}`}
+                                style={{ color: "#FF6B6B" }} // cursor color
+                            >
+                                |
+                            </span>
+                        </motion.h1>
+                    </motion.div>
+
+                    <motion.div className="buttons" variants={textVariants}>
                         <motion.button 
-                            variants={textVariants} 
-                            onClick={handleResumeClick}
+                            onClick={handlePortfolioClick}
+                            variants={textVariants}
+                        >
+                            See the Latest Works
+                        </motion.button>
+                        
+                        <motion.button 
+                        onClick={handleContactClick}
+                        variants={textVariants}
+                        >
+                            Contact Me
+                        </motion.button>
+                        <motion.button 
+                        onClick={handleResumeClick}
+                        variants={textVariants}
                         >
                             My Resume
                         </motion.button>
                     </motion.div>
-                    <motion.img variants={textVariants} animate="scrollButton" src="./scroll.png" alt=""></motion.img>
+
+                    {/* Scroll Icon Animation */}
+                    <motion.img
+                        src="./scroll.png"
+                        alt="scroll icon"
+                        variants={textVariants}
+                        animate="scrollButton"
+                    />
                 </motion.div>
             </div>
 
-            <motion.div className="slidingTextContainer" variants={sliderVariants} initial="initial" animate="animate">
+            {/* Sliding Text Animation */}
+            <motion.div
+                className="slidingTextContainer"
+                variants={sliderVariants}
+                animate="animate"
+            >
                 MERN-Stack LeetCode DSA Programming
             </motion.div>
 
             <div className="imageContainer">
-                <img src="./mypic.png" alt=""></img>
+                <img src="./mypic.png" alt="" />
             </div>
         </div>
     );
