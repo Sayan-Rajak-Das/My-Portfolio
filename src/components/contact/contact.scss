@@ -2,23 +2,48 @@
 
 .contact {
     height: 100%;
-    max-width: 1366px;
+    max-width: 1320px;
     margin: auto;
     display: flex;
     align-items: center;
+    padding-bottom: 30px;
     gap: 50px;
 
-    
+    @include mobile {
+        width: 100%;
+        // padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+        padding-bottom: 20px;
+        align-items: initial;
+    }    
 
     .textContainer {
         flex: 1;
         display: flex;
         flex-direction: column;
-        gap: 40px;
+        padding-bottom: 30px;
+        gap: 20px;
+
+        @include mobile {
+            gap: 7px;
+            text-align: center;
+            align-items: center;
+            margin-top: 90px;
+            padding: 0px 40px;
+            // max-height: unset;
+        }
         
         h1 {
-            font-size: 90px;
+            font-size: 80px;
             line-height: 88px;
+            margin-bottom: 20px;
+
+            @include mobile{
+                font-size: 28px; 
+                line-height: 20px;  
+                margin-bottom: 10px;
+            }
         }
 
         span {
@@ -30,12 +55,33 @@
         flex: 1;
         position: relative;
 
+        @include mobile{
+            flex: 2;
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
 
         .phoneSvg {
             stroke: orange;
             position: absolute;
             margin: auto;
             z-index: -1;  // pointer-events: none;
+
+            @include mobile{
+                right: 5.7px;
+            }
+
+            svg {
+                height: 450px;
+                width: 450px;
+
+                @include mobile {
+                    height: 350px;
+                    width: 350px;
+                }
+            }
         }
 
         form {
@@ -43,22 +89,44 @@
             flex-direction: column;
             gap: 20px;
 
+            @include mobile {
+                padding: 15px;
+                gap: 18px;  
+            }
+
 
             input, textarea {
-                padding: 20px;
+                padding: 15px;
                 background-color: transparent;
                 border: 1px solid white;
                 color: white;
                 border-radius: 5px;
+
+                @include mobile {
+                    padding: 5px;
+                    font-size: 14px;  
+                }
+
+                &::placeholder {
+                    font-size: 13px;
+                    padding-left: 5px;
+                }
             }
 
             button {
-                padding: 13px 20px;
+                padding: 11px 20px;
                 border: none;
                 background-color: orange;
                 border-radius: 5px;
                 cursor: pointer;
                 font-weight: 600;
+
+                @include mobile {
+                    padding: 8px;  // Slightly reduced padding for mobile view
+                    font-size: 14px; 
+                    font-weight: 800;
+                    border-radius: 7px;
+                }
             }
 
             button:hover {

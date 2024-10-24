@@ -2,122 +2,193 @@
 
 .services {
     background: linear-gradient(180deg, #0c0c1d, #111132);
-    height: 100%;
+    min-height: 100vh; /* Ensure it takes full height on mobile */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-
-    .textContainer{
-        flex:1;
+    .textContainer {
+        flex: 1.2;
         align-self: flex-end;
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 15px;
+
+        @include mobile {
+            align-self: center;
+            text-align: center;
+            flex-direction: column;
+            padding: 15px;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
 
         p {
             font-weight: 200;
-            font-size: 16px;
+            font-size: 15px;
             color: gray;
             text-align: right;
+
+            @include mobile {
+                font-size: 15px;
+                text-align: center;
+                padding: 0px;
+            }
         }
 
         hr {
-            width: 350px;
+            width: 330px;
             border: none;
             border-top: 0.5px solid gray;
+
+            @include mobile {
+                width: 88vw;
+            }
         }
     }
 
-    .titleContainer{
+    .titleContainer {
         flex: 1.5;
         display: flex;
         flex-direction: column;
         align-items: center;
-        // margin: 40px;
+        margin-top: 20px;
 
+        @include mobile {
+            margin-top: auto;
+            padding: 15px;
+            padding-top: 0;
+            gap: 15px;
+
+        }
 
         .title {
             display: flex;
             align-items: center;
-            gap: 45px;
+            gap: 40px;
+
+            @include mobile {
+                flex-direction: column;
+                gap: 15px;
+            }
 
             img {
-                width: 200px; 
-                height: 75px; 
+                width: 195px;
+                height: 73px;
                 border-radius: 50px;
                 object-fit: cover;
+
+                @include mobile {
+                    width: 120px;
+                    height: 50px;
+                }
             }
 
             h1 {
                 font-size: 65px;
                 font-weight: 100;
+
+                @include mobile {
+                    font-size: 28px;
+                    text-align: center;
+                    line-height: 0.8;
+                }
             }
 
             button {
                 font-family: system-ui;
-                width: 200px; 
-                height: 62px; 
+                width: 180px;
+                height: 55px;
                 border-radius: 50px;
                 background-color: orange;
                 border: none;
-                font-size: 18px;
+                font-size: 17.5px;
                 cursor: pointer;
                 transition: all 0.3s ease;
+
+                @include mobile {
+                    width: 140px;
+                    height: 45px;
+                    font-size: 13px;
+                }
             }
 
             button:hover {
-                background-color: #ff9933; 
+                font-size: 17px;
+                background-color: #fa9128; 
                 color: blanchedalmond;
-                opacity: 0.9;
-                box-shadow: 0px 8px 15px rgba(198, 136, 21, 0.2); 
             }
         }
     }
 
     .listContainer {
-        flex: 2;
+        flex: 1.5;
         display: flex;
-        max-width: 1350px;
+        max-width: 1330px;
         margin: auto;
 
-        // flex-direction: row;
-        // flex-wrap: wrap;  
-        // justify-content: center;
-        // max-width: 100%;
-
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 6px;
+        }
 
         .box {
-            width: 350px;
-            padding: 45px;
+            width: 340px;
+            padding: 30px;
             border: 0.5px solid gray;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            gap: 10px;
+            gap: 0px;
 
+            @include mobile {
+                width: 90%;
+                padding: 25px;
+                gap: 6px;
+            }
 
             h2 {
                 color: rgb(143, 86, 0);
+
+                @include mobile {
+                    color: whitesmoke;
+                    justify-content: center;
+                    font-size: 18px;
+                }
+            }
+
+            /* Hide the <p> tags on mobile for better fit */
+            p {
+                @include mobile {
+                    display: none;
+                }
             }
 
             button {
-                padding: 8px;
+                padding: 10px;
                 background-color: orange;
                 border: none;
                 border-radius: 3px;
                 cursor: pointer;
-
                 transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
                 transform: scale(1);
                 font-size: 16px;
+
+                @include mobile {
+                    background-color: transparent;
+                    color: orange;
+                    border: 1px solid orange;
+                    padding: 8px;
+                    font-size: 13px;
+                }
             }
 
             button:hover {
-                transform: scale(1.1);
-                box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+                transform: scale(1.05);
+                box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
             }
         }
-
     }
 }

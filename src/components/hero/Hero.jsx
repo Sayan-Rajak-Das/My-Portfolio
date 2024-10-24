@@ -116,44 +116,55 @@ const Hero = () => {
                     initial="initial"
                     animate="animate"
                 >
-                    <motion.h2 variants={textVariants}>SAYAN RAJAK DAS</motion.h2>
+                    <motion.h2 variants={textVariants}>
+                        Hi, I'm<br />
+                        <span style={{ fontFamily: "Poppins, sans-serif" }}>SAYAN RAJAK DAS</span>
+                    </motion.h2>
 
                     {/* Typewriter effect with cursor */}
-                    <motion.div 
-                        className="changingText" 
+                    <motion.div
+                        className="changingText"
                         style={{ position: "relative", height: "50px" }}
                         variants={textVariants}
                     >
                         <motion.h1
-                            style={{ whiteSpace: "nowrap" }} // Ensuring text stays on one line
+                            style={{ whiteSpace: "nowrap", color: "#854CE6" }} // Ensuring text stays on one line
                         >
-                            {displayedText}
+                            <span style={{ color: "white" }}>I'm a </span>
+                            <span style={{ color: "#854CE6" }}>{displayedText}</span>
                             <span
                                 className={`cursor ${cursorVisible ? "visible" : ""}`}
-                                style={{ color: "#FF6B6B" }} // cursor color
+                                style={{ color: "#854CE6" }} // cursor color
                             >
                                 |
                             </span>
                         </motion.h1>
+                    </motion.div >
+
+                    <motion.div className="description" variants={textVariants}>
+                        I am a proficient web developer with expertise in 
+                        data structures and algorithms. Skilled in building 
+                        scalable applications and solving complex problems, with 
+                        a focus on delivering efficient, high-quality solutions.
                     </motion.div>
 
                     <motion.div className="buttons" variants={textVariants}>
-                        <motion.button 
+                        <motion.button
                             onClick={handlePortfolioClick}
                             variants={textVariants}
                         >
                             See the Latest Works
                         </motion.button>
-                        
-                        <motion.button 
-                        onClick={handleContactClick}
-                        variants={textVariants}
+
+                        <motion.button
+                            onClick={handleContactClick}
+                            variants={textVariants}
                         >
                             Contact Me
                         </motion.button>
-                        <motion.button 
-                        onClick={handleResumeClick}
-                        variants={textVariants}
+                        <motion.button
+                            onClick={handleResumeClick}
+                            variants={textVariants}
                         >
                             My Resume
                         </motion.button>

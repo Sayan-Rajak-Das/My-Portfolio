@@ -47,7 +47,6 @@ const Links = () => {
         "Services",
         "Portfolio",
         "Contact",
-        "About",
     ]
 
     return (
